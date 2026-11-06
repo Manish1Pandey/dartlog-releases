@@ -56,6 +56,12 @@ day** in a dashboard in your browser. So you can answer questions like:
 
 ## Install
 
+| System | Status |
+| --- | --- |
+| macOS (Apple Silicon and Intel) | ✅ Supported |
+| Linux (x64 and ARM) | 🧪 Beta |
+| Windows (x64 and ARM) | 🧪 Beta |
+
 You need **Python 3.8 or newer** (already on macOS and most Linux).
 Open a terminal and paste:
 
@@ -81,6 +87,12 @@ The installer:
 3. starts DartLog in the background, so it is always ready, even after a
    restart;
 4. opens the dashboard in your browser.
+
+> **macOS: install from the terminal, as shown above.** Don't download the
+> `dartlog` file through a browser: macOS blocks downloaded programs that are
+> not signed through Apple ("can't be opened because Apple cannot check it").
+> If you already did, right-click the file and choose **Open**, or run
+> `xattr -d com.apple.quarantine dartlog` once.
 
 No Python? Use `bootstrap.sh` (macOS/Linux) or `bootstrap.ps1` (Windows) from
 the [latest release](https://github.com/Manish1Pandey/dartlog-releases/releases/latest);
