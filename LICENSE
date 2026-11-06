@@ -1,0 +1,30 @@
+DartLog
+Copyright (c) 2026 Manish Pandey. All rights reserved.
+
+This software, including its source code, compiled programs, dashboard,
+installer scripts, VS Code extension, documentation and images (together,
+the "Software"), is proprietary and confidential.
+
+Permission is granted, free of charge, to download the official compiled
+releases of the Software from https://github.com/Manish1Pandey/dartlog-releases
+or the Visual Studio Code Marketplace, and to install and use them on your own
+computers, for personal or commercial software development.
+
+You may not, without prior written permission from the copyright holder:
+
+  1. copy, modify, translate or create derivative works of the Software;
+  2. redistribute, sublicense, sell, rent, lease or host the Software for
+     others, in whole or in part;
+  3. reverse engineer, decompile or disassemble the Software, except where
+     applicable law expressly permits it despite this restriction;
+  4. remove or alter any copyright, license or attribution notices.
+
+Third-party components included in the Software remain under their own
+licenses, listed in THIRD_PARTY_NOTICES.md.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
