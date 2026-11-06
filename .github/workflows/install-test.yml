@@ -30,6 +30,9 @@ jobs:
           - { name: "macOS ARM",     os: macos-latest }
     env:
       DARTLOG_CHECK_UPDATES: "0"
+      # a Windows machine without PostgreSQL: the installer would ask for this
+      # password; an unattended run passes it instead (used only on Windows)
+      DARTLOG_PG_PASSWORD: "dartlog-test-${{ github.run_id }}"
       VERSION: ${{ inputs.version }}
     steps:
       - name: Download the installer
