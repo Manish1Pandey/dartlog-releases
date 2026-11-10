@@ -197,6 +197,11 @@ Download `dartlog-<version>.vsix` from the
 then in VS Code open the **Extensions** view, click **⋯ → Install from VSIX…**
 and pick the file.
 
+**No DartLog yet? The extension installs it for you.** After installing the
+extension, open the DartLog panel and click **Install DartLog**. A terminal
+runs the official installer (the same steps as [Install](#install)), and the
+dashboard opens when DartLog is ready.
+
 ## Updating
 
 DartLog tells you on the dashboard when a newer version is out. To update,
