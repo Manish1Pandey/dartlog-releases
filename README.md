@@ -12,6 +12,7 @@
 <p align="center">
   <a href="#install"><b>Install</b></a> ·
   <a href="#how-to-use-it">How to use it</a> ·
+  <a href="#whats-new-in-020">What's new</a> ·
   <a href="#updating">Update</a> ·
   <a href="#troubleshooting">Help</a> ·
   <a href="https://github.com/Manish1Pandey/dartlog-releases/releases/latest">Download</a>
@@ -49,10 +50,12 @@ day** in a dashboard in your browser. So you can answer questions like:
 | 📅 **History by day** | Every request is kept and grouped by app and date, not lost when the app stops. |
 | 🔴 **Live** | New requests appear on the dashboard as they happen. |
 | 🔍 **Full detail** | Headers, bodies (with a JSON viewer), timings, errors, and copy as cURL. |
+| 🌊 **Waterfall** | See which calls ran at the same time, which waited for each other, and where time was lost. |
 | 📊 **Insights** | Error rate, slowest endpoints and busiest hours at a glance. |
-| 🔒 **Private** | Everything stays on your computer. Passwords, tokens and card numbers are masked before saving. |
+| 🔒 **Private** | Everything stays on your computer. Passwords, tokens and card numbers are masked before saving, and you can test it. |
 | 📱 **Phones and emulators** | Android phones and emulators, iPhones and iOS simulators. |
-| 🧩 **VS Code** | Open DartLog in one click from the Dart status menu. |
+| 🧩 **VS Code** | A sidebar with today's requests, and DartLog in the Dart status menu. |
+| 💻 **Terminal** | Look up apps, requests and numbers with `dartlog` commands. |
 
 ## Install
 
@@ -108,6 +111,14 @@ they install Python first.
 3. Your app appears under **Connected apps** and its requests start to show up.
    Come back any time: everything is kept by day.
 
+**Nothing showing up yet?** Until the first request arrives, the Overview shows
+a short checklist: *DartLog is running*, *Phone connected*, *App running in
+debug* and *First request recorded*. Each step ticks itself off, and the one
+that is still open tells you what to do next (for example, accept the "Allow
+USB debugging" prompt on your phone).
+
+![The first-run checklist on the Overview](media/checklist.png)
+
 ### A quick look
 
 **Overview: every app you've worked on, and today's numbers**
@@ -126,10 +137,58 @@ they install Python first.
 
 ![Headers and JSON body of one request](media/detail.png)
 
+## What's new in 0.2.0
+
+### Waterfall: see your app's calls on a timeline
+
+Click **Waterfall** above a day's request list (or next to a session) to see
+every request as a bar on a timeline. Bars side by side ran **at the same
+time**; bars one after another **waited for each other**. DartLog also points
+out the slowest chain of calls, idle gaps, failed calls and the same call made
+twice. Hover a bar for details, click it to open the request.
+
+![The waterfall of one app run: parallel calls at start-up, a pause, then checkout](media/waterfall.png)
+
+### Terminal commands
+
+Prefer the terminal? Ask DartLog straight from it. DartLog must be running
+(it is, if you used the installer).
+
+| Command | Shows |
+| --- | --- |
+| `dartlog apps` | Your apps, with today's requests and errors |
+| `dartlog requests` | The newest requests as a table. Add filters such as `--app`, `--date yesterday`, `--status 4xx` or `--search orders` |
+| `dartlog show <UID>` | One request in full. Add `--curl` to get a command you can run again |
+| `dartlog stats` | A day's numbers: requests, error rate, average and slowest times, top endpoints |
+
+Add `--json` to any of them to use the output in a script.
+
+![dartlog requests and dartlog stats in a terminal](media/terminal.png)
+
+### Test what gets masked
+
+DartLog hides passwords, tokens, cookies and card numbers before it saves
+anything. To see it for yourself, open **Settings → Masking**, paste a URL,
+some headers or a JSON body, and click **Test masking**: DartLog shows exactly
+what it would store. Nothing you paste is saved.
+
+Your app has its own secret fields, like `national_id`? Pick the app and add
+them as **custom keys**; they are masked from then on.
+
+![Settings, Masking: a test with custom keys for one app](media/masking.png)
+
 ## VS Code extension
 
-Adds **DartLog** to the Dart status menu with an **Open** button (or
-**Launch** when DartLog is stopped).
+**A DartLog sidebar.** Click the DartLog icon in the Activity Bar to see
+today's requests of the app you are debugging; new ones appear by themselves. Click a request
+to read it in an editor tab. Right-click to copy it as cURL or as a URL, or to
+open it in the dashboard. You can filter the list or show only errors. While
+you debug, the status bar shows today's count of requests and errors.
+
+![The DartLog sidebar in VS Code with one request open](media/sidebar.png)
+
+**In the Dart status menu.** DartLog also appears in the `{ }` menu with an
+**Open** button (or **Launch** when DartLog is stopped).
 
 ![DartLog in the Dart status menu of VS Code](media/vscode-menu.png)
 
@@ -178,7 +237,7 @@ python3 setup.py doctor
 - DartLog runs **only on your computer** and listens on `127.0.0.1`, so other
   devices on your network can't see it.
 - Recorded traffic is stored in a local PostgreSQL database. **Passwords,
-  tokens, cookies and card numbers are masked before they are saved.**
+  tokens, cookies and card numbers are masked before they are saved.** You can check what is masked in Settings → Masking.
 - DartLog sends nothing anywhere. Once a day it asks GitHub whether a new
   version exists; turn that off with `DARTLOG_CHECK_UPDATES=0`.
 
